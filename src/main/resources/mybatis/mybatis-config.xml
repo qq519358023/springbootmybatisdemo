@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD SQL Map Config 3.0//EN"  
+	"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	
+	<settings>
+		<!-- lazyLoadingEnabled:延迟加载启动，默认是false -->
+		<setting name="lazyLoadingEnabled" value="true" />
+		<!-- aggressiveLazyLoading：积极的懒加载，false的话按需加载，默认是true -->
+		<setting name="aggressiveLazyLoading" value="false" />
+		<!-- 开启二级缓存，默认是false -->
+		<setting name="cacheEnabled" value="true" />
+		<!-- 是否使用JDBC的getGenereatedKeys方法获取主键并赋值到keyProperty设置的领域模型属性中，默认是false-->
+        <setting name="useGeneratedKeys" value="true" /> 
+        <!-- 配置和设定执行器，SIMPLE 执行器执行其它语句；REUSE 执行器可能重复使用prepared statements 语句；BATCH执行器可以重复执行语句和批量更新；默认值是SIMPLE-->
+        <setting name="defaultExecutorType" value="REUSE" />
+        <!-- 只打印sql --> 
+       	<setting name="logImpl" value="STDOUT_LOGGING" />
+    </settings>
+
+	<typeAliases>
+		<typeAlias type="com.beijia.example.util.PageData" alias="pd"/>
+		<!-- 通过package, 可以直接指定package的名字， mybatis会自动扫描你指定包下面的javabean,
+	              并且默认设置一个别名，默认的名字为： javabean 首字母小写的非限定类名来作为它的别名。
+	              也可在javabean 加上注解@Alias 来自定义别名， 例如： @Alias("user")  -->
+		<package name="com.beijia.example.entity"/>
+	</typeAliases>
+	
+	<!--<plugins>
+		<plugin interceptor="com.beijia.plugin.PagePlugin">
+			<property name="dialect" value="mysql"/>
+			<property name="pageSqlId" value=".*listPage.*"/>
+		</plugin>
+	</plugins>-->
+</configuration>
